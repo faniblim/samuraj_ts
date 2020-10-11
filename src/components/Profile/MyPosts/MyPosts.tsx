@@ -15,11 +15,11 @@ const MyPosts = (props: any) => {
            </div>
            <Post
                message={"Hi, how are you?"}
-               likecount={'like 15'}
+               likesCount={'9'}
            />
            <Post
                message={"It's my first post"}
-               likecount={'like 20'}
+               likesCount={'20'}
            />
        </div>
     );
