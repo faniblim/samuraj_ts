@@ -3,6 +3,7 @@
     /* background-color: rgb(187, 98, 135); */
     background-color: rgb(230, 138, 158);
 
+
 }
 /*.content {*/
 
@@ -10,10 +11,11 @@
 /*    background-color: rgb(115, 194, 197);*/
 /*}*/
 
-.item {
-    color: cyan;
+.item a {
+    color: whitesmoke;
+    text-decoration: none;
 }
 
-.item.active {
+.item a.activeLink {
     color: gold;
 }
