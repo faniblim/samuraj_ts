@@ -1,18 +1,21 @@
-import React from "react";
 import s from "./Profile.module.css";
-import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo, {ProfileInfoType} from "./ProfileInfo/ProfileInfo";
+import React from "react";
+import MyPosts, {MyPostsType} from "./MyPosts/MyPosts";
 
-const Profile = () => {
+
+export type ProfileType = {
+    ProfileInfoType: ProfileInfoType;
+    MyPostsType: MyPostsType;
+}
+
+const Profile = (props: ProfileType) => {
     return (
-        <div className={s.content}>
-            <div>
-                <img src="https://sun9-49.userapi.com/AfX6GrEzWjvLGKhcksDq9ktmbQ6L2Z2JGiEOZw/tTy-mw5GOYs.jpg" />
-            </div>
-            <div>ava+description</div>
-           <MyPosts />
+        <div>
+            <ProfileInfo />
+            <MyPosts />
         </div>
     );
 };
-
 
 export default Profile;
