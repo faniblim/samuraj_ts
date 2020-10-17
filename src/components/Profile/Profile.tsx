@@ -1,4 +1,4 @@
-import ProfileInfo, {ProfileInfoType} from "./ProfileInfo/ProfileInfo";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import React from "react";
 import MyPosts from "./MyPosts/MyPosts";
 import {PostType} from "./MyPosts/Post/Post";
