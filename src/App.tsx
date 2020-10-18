@@ -8,11 +8,14 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
-import {Statetype} from "./redux/state";
+import {AddPostType, Statetype} from "./redux/state";
 import Friends from "./components/Sidebar/Friends";
 
-
-const App = (props: { state: Statetype }) => {
+type PropsType = {
+    state: Statetype
+    addPost: (postMessage: string)  => void;
+}
+const App = (props: PropsType) => {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
@@ -24,7 +27,8 @@ const App = (props: { state: Statetype }) => {
                             dialogs={props.state.dialogsPage.dialogs} messages={props.state.dialogsPage.messages}
                         />)}/>
                     <Route path="/profile"
-                           render={() => <Profile posts={props.state.profilePage.posts}/>}/>
+                           render={() => <Profile posts={props.state.profilePage.posts}
+                                                  addPost={props.addPost}/>}/>
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/music" render={() => <Music/>}/>
                     <Route path="/settings" render={() => <Settings/>}/>

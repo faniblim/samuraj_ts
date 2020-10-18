@@ -1,13 +1,16 @@
 import React from "react";
 import s from "./MyPosts.module.css";
-import Post, {PostType} from "./Post/Post";
+import Post from "./Post/Post";
+import {NewPostType} from "../../../redux/state";
 
-type MyPoststype = {
-    posts: Array<PostType>;
+type PropsType = {
+    posts: Array<NewPostType>;
+    addPost: (postMessage: string)  => void;
+
 }
 
 
-const MyPosts = (props: MyPoststype) => {
+const MyPosts = (props: PropsType) => {
 
     let postsElements =
         props.posts.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>);
@@ -15,9 +18,10 @@ const MyPosts = (props: MyPoststype) => {
     let newPostElements = React.createRef<HTMLTextAreaElement>();
 
     let addPost = () => {
-        // @ts-ignore
+        if (newPostElements.current) {
         let text = newPostElements.current.value;
-        alert(text);
+        props.addPost(text);
+        }
     }
 
     return (

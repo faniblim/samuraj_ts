@@ -1,12 +1,36 @@
-import {DialogsType} from "../components/Dialogs/Dialogs";
-import {ProfileType} from "../components/Profile/Profile";
-import {FriendType} from "../components/Sidebar/Friend/Friend";
+
+export type FriendsType = {
+    friends: Array<FriendType>;
+}
+
+export type FriendType = {
+    id: number;
+    name: string;
+    friendCount: string;
+}
 
 export type Statetype = {
     profilePage: ProfileType;
-    dialogsPage: DialogsType;
-    sidebar: {friends:Array<FriendType>};
+    dialogsPage: DialogType;
+    sidebar: FriendsType;
 }
+export type ProfileType = {
+    posts: Array<NewPostType>;
+    }
+export type DialogItemType = {
+    id: number;
+    name: string;
+}
+
+export type MessageType = {
+    id: number;
+    message: string;
+}
+export type DialogType = {
+    dialogs: Array<DialogItemType>;
+    messages: Array<MessageType>;
+}
+
 
 let state: Statetype = {
     profilePage: {
@@ -38,6 +62,26 @@ let state: Statetype = {
             {id: 3, name: "Alla", friendCount: "friends84"}
         ]
     }
+}
+
+export type AddPostType = {
+    newPost: object;
+}
+
+export type NewPostType = {
+    id: number;
+    message: any;
+    likesCount: string;
+}
+
+export let addPost = (postMessage: string) => {
+    let newPost: NewPostType = {
+        id: 5,
+        message: postMessage,
+        likesCount: '0',
+    }
+    state.profilePage.posts.push(newPost);
+
 }
 
 export default state;

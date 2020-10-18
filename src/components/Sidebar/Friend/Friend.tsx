@@ -2,13 +2,13 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 import s from "./../Friends.module.css";
 
-export type FriendType = {
+type PropsType = {
     id: number;
     name: string;
     friendCount: string;
 }
 
-const Friend = (props: FriendType) => {
+const Friend = (props: PropsType) => {
     let path = "/sidebar/" + props.id;
     return (
         <div className={s.dialog + " " + s.active}>
