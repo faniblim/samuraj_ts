@@ -4,16 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import state, {addPost} from "./redux/state";
+import {rerenderEntiereTree} from "./render";
 
 
 
-ReactDOM.render(
-    <React.StrictMode>
-        <App
-            state={state} addPost={addPost} />
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+rerenderEntiereTree(state);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -7,6 +7,8 @@ import {DialogItemType, MessageType} from "../../redux/state";
 type PropsType = {
     dialogs: Array<DialogItemType>;
     messages: Array<MessageType>;
+    addMessage: (postMessage: string)  => void;
+
 }
 
 const Dialogs = (props: PropsType) => {
@@ -22,7 +24,8 @@ const Dialogs = (props: PropsType) => {
     let addMessage = () => {
        if (newMessageElements.current) {
            let text = newMessageElements.current.value;
-           alert(text);
+           props.addMessage(text);
+           // newMessageElements.current.value = '';
        }
     };
 
