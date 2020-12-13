@@ -2,8 +2,14 @@
     grid-area: n;
     /* background-color: rgb(187, 98, 135); */
     background-color: rgb(230, 138, 158);
-    padding: 20px;
-  }
+
+
+}
+/*.content {*/
+
+/*    grid-area: c;*/
+/*    background-color: rgb(115, 194, 197);*/
+/*}*/
 
 .item a {
     color: whitesmoke;

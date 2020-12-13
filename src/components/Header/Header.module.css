@@ -2,8 +2,8 @@
     grid-area: h;
     /* background-color: rgb(243, 184, 107); */
     background-color:  rgb(37, 25, 34);
-    }
-    .header img {
-      width: 60px;
-      /* height: 20px; */
-    }
+}
+.header img {
+    width: 60px;
+    /* height: 20px; */
+}

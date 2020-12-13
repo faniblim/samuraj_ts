@@ -1,10 +1,11 @@
+
 .app-wrapper {
   margin: 0 auto;
   display: grid;
   width: 1200px;
-  grid-template-areas: 
-  " h h"
-  "n c";
+  grid-template-areas:
+          " h h"
+          "n c";
 
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
@@ -12,6 +13,8 @@
 }
 
 .app-wrapper-content {
-    grid-area: c;
-    background-color: rgb(115, 194, 197);   
+  grid-area: c;
+  background-color: rgb(147, 136, 165);
+  /*background-color: rgb(115, 194, 197);*/
+  /* background-color: rgb(102, 93, 117); */
 }
