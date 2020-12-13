@@ -1,26 +1,30 @@
 .dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  
 }
 
 .dialogsItem {
-    padding: 10px;
-    color: white;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .dialogsItem .active {
-    color: gold;
+  color: gold;
 }
 
 .messages {
-    padding: 10px;
+  padding: 10px;
 }
 
 .messages .message {
-    color: white;
+  color: white;
+  text-decoration: none;
 }
+
 .item img {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
 }

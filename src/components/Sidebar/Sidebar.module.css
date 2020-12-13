@@ -1,5 +1,3 @@
-
-
 .friends {
     padding: 10px;
     color: white;
@@ -12,3 +10,10 @@
     border-radius: 25px;
 }
 
+.namefriend {
+    padding: 10px;
+  }
+
+  /* .dialogsItem .active {
+    color: gold;
+  } */
