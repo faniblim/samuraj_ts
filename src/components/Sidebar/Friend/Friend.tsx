@@ -14,7 +14,7 @@ const Friend = (props: PropsType) => {
         <div className={s.dialog + " " + s.active}>
             <div className={s.friendAva}>
                 <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8OWX7c2IADo4uKQDgwoqVdbGHujgcorOefQ&usqp=CAU"/>
+                    src="https://sun9-19.userapi.com/impf/QE3uV19vrEuBjteOmxVrC1q7d7RlUhMdFhg7Hw/tYnx66jsYak.jpg?size=201x201&quality=96&proxy=1&sign=62f245da04c83b3e70fec74f23afa0e9&type=album"/>
             </div>
             <div>
                 <NavLink to={path} className={s.friends}>{props.name} </NavLink>

@@ -13,12 +13,8 @@ import Friends from "./components/Sidebar/Friends";
 
 type PropsType = {
     state: Statetype
-    // addPost: (postMessage: string) => void;
-    addPost: () => void;
-    addMessage: (postMessage: string) => void;
-    newPostText: string
-    updateNewPostText: (newText: string) => void;
-    updateNewMessageText: (newMessage: string) => void;
+    // newPostText: string
+    dispatch: any
 }
 const App = (props: PropsType) => {
     return (
@@ -31,17 +27,14 @@ const App = (props: PropsType) => {
                         <Dialogs
                             dialogs={props.state.dialogsPage.dialogs}
                             messages={props.state.dialogsPage.messages}
-                            addMessage={props.addMessage}
-                            // updateNewMessageText={props.updateNewMessageText}
-
+                            dispatch={props.dispatch}
+                            newMessageText={props.state.dialogsPage.newMessageText}
                         />)}/>
                     <Route path="/profile"
                            render={() => <Profile
-
-                               newPostText={props.newPostText}
+                               // newPostText={props.newPostText}
                                profilePage={props.state.profilePage}
-                               addPost={props.addPost}
-                               updateNewPostText={props.updateNewPostText}
+                               dispatch={props.dispatch}
                            />}/>
                     <Route path="/news" render={() => <News/>}/>
                     <Route path="/music" render={() => <Music/>}/>
