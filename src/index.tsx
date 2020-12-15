@@ -12,7 +12,10 @@ let rerenderEntiereTree = (state: Statetype) => {
             <BrowserRouter>
                 <App
                     state={state}
-                    dispatch={store.dispatch.bind(store)}/>
+                    dispatch={store.dispatch.bind(store)}
+                    newMessageBody={state.dialogsPage.newMessageBody}
+                    // store={store}
+                />
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
