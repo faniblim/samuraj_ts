@@ -1,32 +1,28 @@
 import React, {ChangeEvent} from "react";
 import Friend from "./Friend/Friend";
 import s from "./Friends.module.css";
-import {
-    addFriendActionCreator,
-    FriendType, onFriendChangeActionCreator,
-} from "../../redux/state";
+import {FriendsType, FriendType} from "../../redux/store";
 
 type PropsType = {
-    friends: Array<FriendType>;
     newFriend: string;
-    dispatch: any
+    friends: Array<FriendType>
+    addFriend: () => void;
+    onFriendChange: (text: string) => void
 }
 
 const Friends = (props: PropsType) => {
+    // let state = props.sidebar;
 
-    let friendsElements = props.friends
-        .map(f => <Friend id={f.id} name={f.name} friendCount={f.friendCount}/>);
-
+    let friendsElements = props.friends.map(f => <Friend id={f.id} name={f.name} friendCount={f.friendCount}/>);
     let newFriendElements = React.createRef<HTMLTextAreaElement>();
 
-    let addFriend = () => {
-        props.dispatch(addFriendActionCreator());
+    let onAddFriend = () => {
+        props.addFriend();
     }
 
     let onFriendChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         let text = e.currentTarget.value;
-        let action = onFriendChangeActionCreator(text);
-        props.dispatch(action);
+        props.onFriendChange(text);
     };
 
     return (
@@ -38,9 +34,8 @@ const Friends = (props: PropsType) => {
                           ref={newFriendElements}
                           value={props.newFriend}/>
                     <div>
-                        <button onClick={addFriend}>Add Friend</button>
+                        <button onClick={onAddFriend}>Add Friend</button>
                     </div>
-                {/*    {friendsElements}*/}
                 </div>
 
             </div>
