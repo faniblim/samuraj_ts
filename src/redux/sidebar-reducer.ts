@@ -15,6 +15,10 @@ let initialState = {
 }
 
 const sidebarReducer = (state: FriendsType = initialState, action: ActionsType) => {
+    let stateCopy = {
+        ...state,
+        friends: [...state.friends]
+    }
     switch (action.type) {
         case ADD_FRIEND:
             let newFriend: FriendType = {
@@ -22,12 +26,16 @@ const sidebarReducer = (state: FriendsType = initialState, action: ActionsType) 
                 name: state.newFriend,
                 friendCount: "friends83"
             }
-            state.friends.push(newFriend);
-            state.newFriend = '';
-            return state;
+            return {
+                ...state,
+                newFriend: '',
+                friends: [...state.friends, newFriend]
+            }
         case UPDATE_NEW_FRIEND:
-            state.newFriend = action.newFriend;
-            return state;
+            return {
+                ...state,
+                newFriend: action.newFriend
+            }
         default:
             return state;
     }
@@ -42,6 +50,6 @@ type OnFriendChangeACType = {
 }
 
 export const addFriendActionCreator = () => ({type: ADD_FRIEND})
-export const onFriendChangeActionCreator = (text: string) => ({type: UPDATE_NEW_FRIEND, newMessage: text})
+export const onFriendChangeActionCreator = (text: string) => ({type: UPDATE_NEW_FRIEND, newFriend: text})
 
 export default sidebarReducer;

@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import {PostType, ProfileType} from "../../../redux/store";
+import {PostType} from "../../../redux/store";
 
 export type PropsType = {
     posts: Array<PostType>;
@@ -11,9 +11,8 @@ export type PropsType = {
    }
 
 const MyPosts = (props: PropsType) => {
-    // let state = props.profilePage;
-
-    let postsElements = props.posts.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount}/>);
+    //
+    let postsElements = props.posts.map(p => <Post id={p.id} message={p.message} likesCount={p.likesCount} key={p.id} />);
     let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     let onAddPost = () => {

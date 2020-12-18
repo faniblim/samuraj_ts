@@ -1,7 +1,6 @@
 import React from "react";
 import {addFriendActionCreator, onFriendChangeActionCreator} from "../../redux/sidebar-reducer";
 import Friends from "./Friends";
-import {StateType} from "../../redux/store";
 import {connect} from "react-redux";
 import {RootStateReduxType} from "../../redux/redux-store";
 
