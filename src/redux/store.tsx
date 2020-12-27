@@ -18,6 +18,7 @@ export type StateType = {
 export type ProfileType = {
     posts: Array<PostType>;
     newPostText: string
+    profile: any
 }
 export type PostType = {
     id: number;
@@ -50,7 +51,7 @@ export type FriendType = {
     friendCount: string;
 }
 
-let store: StoreType = {
+let store = {
     _state: {
         profilePage: {
             posts: [
@@ -59,7 +60,9 @@ let store: StoreType = {
                 {id: 3, message: "Hi", likesCount: "35"},
                 {id: 4, message: "Yo", likesCount: "2"},
             ],
-            newPostText: 'it-kamasutra.com'
+            newPostText: 'it-kamasutra.com',
+            photo: null,
+
         },
         dialogsPage: {
             dialogs: [
@@ -99,11 +102,11 @@ let store: StoreType = {
 
     dispatch(action: any) {
 
-        this._state.profilePage = profileReducer(this._state.profilePage, action);
-        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
-        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
-
-        this._callSubscriber(this._state);
+        // this._state.profilePage = profileReducer(this._state.profilePage, action);
+        // this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        // this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        //
+        // this._callSubscriber(this._state);
     }
 }
 
