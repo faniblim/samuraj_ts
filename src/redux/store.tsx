@@ -15,30 +15,30 @@ export type StateType = {
     dialogsPage: DialogType;
     sidebar: FriendsType;
 }
-export type ProfileType = {
+type ProfileType = {
     posts: Array<PostType>;
-    newPostText: string
     profile: any
+    status: string
 }
-export type PostType = {
+type PostType = {
     id: number;
     message: any;
     likesCount: string;
 }
-export type DialogItemType = {
-    id: number;
-    name: string;
-    updateNewPostText?: (newText: string) => void//?
-}
+
 
 export type MessageType = {
     id: number;
     message: string;
 }
+
 export type DialogType = {
     dialogs: Array<DialogItemType>
     messages: Array<MessageType>
-    newMessageBody: string
+}
+export type DialogItemType = {
+    id: number;
+    name: string;
 }
 
 export type FriendsType = {
@@ -62,6 +62,7 @@ let store = {
             ],
             newPostText: 'it-kamasutra.com',
             photo: null,
+            status: "",
 
         },
         dialogsPage: {
