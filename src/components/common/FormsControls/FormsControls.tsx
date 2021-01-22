@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./FormControls.module.css";
-import {WrappedFieldMetaProps} from "redux-form";
+import styles from "./FormsControls.module.css";
+import {WrappedFieldMetaProps, Field} from "redux-form";
 
 type FormsControlsPropstype ={
     meta: WrappedFieldMetaProps
@@ -8,12 +8,12 @@ type FormsControlsPropstype ={
 }
 
 
-const Formcontrol:React.FC<FormsControlsPropstype> = ({ meta, ...props}) => {
-    const hasError = meta.touched && meta.error;
+const Formcontrol:React.FC<FormsControlsPropstype> = ({ meta:{touched,error}, children}) => {
+    const hasError = touched && error;
     return (
         <div className={styles.formControl + " " + (hasError ? styles.error : "")} >
-            <div>{props.children}</div>
-            <div>{ hasError && <span>{meta.error}</span>}</div>
+            <div>{children}</div>
+            <div>{ hasError && <span>{error}</span>}</div>
         </div>
     )
 }
@@ -27,3 +27,8 @@ export const Input = (props: any) => {
     const {input, meta, ...restprops} = props;
     return <Formcontrol {...props}><input {...input}  {...restprops} /></Formcontrol>    
 }
+export const createField = (placeholder:any, name: any, validators: any, component: any, props={}, text="") =>
+    <div>
+        <Field placeholder={placeholder} name={name}
+               validate={validators} component={component} {...props} /> {text}
+    </div>

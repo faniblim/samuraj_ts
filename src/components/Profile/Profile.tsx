@@ -8,9 +8,10 @@ type ProrsType = {
     profile: ProfileType
     status: string
     updateStatus: any
+
 }
 
-const Profile = (props: any) => {
+const Profile = (props: ProrsType):any => {
     return (
         <div>
             <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>

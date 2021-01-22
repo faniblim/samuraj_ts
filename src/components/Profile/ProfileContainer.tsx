@@ -6,18 +6,12 @@ import {getUserProfile, getStatus, updateStatus} from "../../redux/profile-reduc
 import {compose} from "redux";
 import { RouteComponentProps } from "react-router";
 
-// type PropsType = {
-//     getUserProfile: any
-//     profile: ProfileType
-//     match: any
-//     getStatus: any
-// }
 type PathParamsType = {
     userId: any
 }
 type MapStatePropsType = {
     profile: any
-    // status: any
+    autorizedUserId: any
 }
 
 type MapDispatchPropstype = {
@@ -30,9 +24,10 @@ type PropsType = RouteComponentProps<PathParamsType> & OwnPropsType
 class ProfileContainer extends React.Component<PropsType, any> {
 
     componentDidMount() {
+        debugger;
         let userId = this.props.match.params.userId;
         if (!userId) {
-            userId = 2
+            userId = this.props.autorizedUserId;
         }
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
@@ -46,10 +41,11 @@ class ProfileContainer extends React.Component<PropsType, any> {
 }
 
 let mapStateToProps
-    //: MapStatePropsType
     = (state: RootStateReduxType) => ({
     profile: state.profileReducer.profile,
     status: state.profileReducer.status,
+    autorizedUserId: state.auth.id,
+    isAuth: state.auth.isAuth,
 })
 
 export default compose<React.ComponentType>(

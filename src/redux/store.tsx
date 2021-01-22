@@ -1,6 +1,3 @@
-import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialogs-reducer";
-import sidebarReducer from "./sidebar-reducer";
 
 export type StoreType = {
     _state: StateType
